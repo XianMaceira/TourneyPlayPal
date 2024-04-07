@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "573541484857",
+    "project_id": "xmb-tourneyplaypal",
+    "storage_bucket": "xmb-tourneyplaypal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573541484857:android:a7ba964067c1ed810600e8",
+        "android_client_info": {
+          "package_name": "com.example.tourneyplaypal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBz0zcdTULgSV6tdgwgWpGooOA1EgRF2s0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
