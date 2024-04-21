@@ -1,8 +1,8 @@
 package com.example.tourneyplaypal
 
-import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
-import android.widget.EditText
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -25,7 +25,10 @@ class HomeActivity : AppCompatActivity()  {
         title = "Perfil"
 
         val emailTextView = findViewById<TextView>(R.id.emailTextView)
-        val logoutButton = findViewById<TextView>(R.id.logoutButton)
+        val logoutButton = findViewById<Button>(R.id.logoutButton)
+        val goToMyTourneysButton = findViewById<Button>(R.id.mytourneysButton)
+        val goToExploreButton = findViewById<Button>(R.id.exploreButton)
+
 
         emailTextView.text = email
 
@@ -34,5 +37,23 @@ class HomeActivity : AppCompatActivity()  {
             onBackPressedDispatcher
             finish()
         }
+        goToMyTourneysButton.setOnClickListener {
+
+            val MyTourneysIntent = Intent(this, MytourneyActivity::class.java).apply {
+
+            }
+            startActivity(MyTourneysIntent)
+
+        }
+
+        goToExploreButton.setOnClickListener {
+
+            val ExploreIntent = Intent(this, ExploreActivity::class.java).apply {
+
+            }
+            startActivity(ExploreIntent)
+
+        }
+
     }
 }

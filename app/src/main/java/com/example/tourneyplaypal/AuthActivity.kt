@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
 
-import com.google.firebase.Firebase
 import com.google.firebase.FirebaseApp
 
 
@@ -36,7 +35,7 @@ class AuthActivity : AppCompatActivity() {
         FirebaseApp.initializeApp(this)
 
 
-        val registerButton = findViewById<Button>(R.id.logoutButton)
+        val registerButton = findViewById<Button>(R.id.registerButton)
         val loginButton = findViewById<Button>(R.id.loginButton)
         val emailEditText = findViewById<EditText>(R.id.editTextEmail)
         val passwordEditText = findViewById<EditText>(R.id.editTextPassword)
