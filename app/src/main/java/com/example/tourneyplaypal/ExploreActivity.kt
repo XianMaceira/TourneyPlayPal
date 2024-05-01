@@ -23,10 +23,7 @@ class ExploreActivity : AppCompatActivity() {
 
         backHomeFromExploreButton.setOnClickListener {
 
-            val GoBackIntent = Intent(this, HomeActivity::class.java).apply {
-
-            }
-            startActivity(GoBackIntent)
+            finish()
 
         }
 

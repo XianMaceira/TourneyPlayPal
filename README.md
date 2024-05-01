@@ -32,6 +32,12 @@ TourneyPlayPal es una aplicación móvil que te permite organizar torneos de vid
 - Se agregó la función de navegación para moverse entre las diferentes pantallas.
 - Se rediseño la pantalla Home.
 
+### Versión 0.3
+
+- Se soluciono un bug que no dejaba iniciar sesión
+- Se rediseño la pantalla Auth.
+- Debería estar listo para empezar con la lógica de crear/unirse a torneos
+
 ## Autor
 
 TourneyPlayPal fue creado por [Xian Maceira Barca](https://github.com/XianMaceira).

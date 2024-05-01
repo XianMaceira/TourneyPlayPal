@@ -25,10 +25,7 @@ class MytourneyActivity : AppCompatActivity() {
 
         backHomeFromMytourneysButton.setOnClickListener {
 
-            val GoBackIntent = Intent(this, HomeActivity::class.java).apply {
-
-            }
-            startActivity(GoBackIntent)
+            finish()
 
         }
 
