@@ -5,26 +5,28 @@ import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties
 data class TournamentEntity(
-    @get:Exclude
     var id: String? = null,
     var name: String? = null,
-    var startDate: String? = null,
-    var endDate: String? = null,
-    var winner: String? = null,
-    var host: String? = null,
     var game: String? = null,
-    var playerCount: Int = 0
+    var playerCount: Int = 0,
+    var currentPlayers: Int = 0,
+    var host: String? = null,
+    var winner: String? = null,
+    var startDate: String? = null,
+    var endDate: String? = null
 ) {
-    @Exclude
     fun toMap(): Map<String, Any?> {
         return mapOf(
+            "id" to id,
             "name" to name,
-            "startDate" to startDate,
-            "endDate" to endDate,
-            "host" to host,
             "game" to game,
+            "playerCount" to playerCount,
+            "currentPlayers" to currentPlayers,
+            "host" to host,
             "winner" to winner,
-            "playerCount" to playerCount
+            "startDate" to startDate,
+            "endDate" to endDate
         )
     }
 }
+

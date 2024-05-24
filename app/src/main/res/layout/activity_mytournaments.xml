@@ -20,44 +20,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.036" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="360dp"
-        android:layout_height="41dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tourneyPageTitleTextView"
-        app:layout_constraintVertical_bias="0.03">
-
-        <TextView
-            android:id="@+id/searchTextView"
-            android:layout_width="130dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:paddingStart="10px"
-            android:paddingTop="25px"
-            android:text="SEARCH" />
-
-        <SearchView
-            android:id="@+id/myTourneySearchView"
-            android:layout_width="335dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-    </LinearLayout>
-
     <ScrollView
         android:id="@+id/scrollView3"
         android:layout_width="404dp"
         android:layout_height="400dp"
+        android:layout_marginBottom="132dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.236">
+        app:layout_constraintTop_toBottomOf="@+id/tourneyPageTitleTextView">
 
         <LinearLayout
+            android:id="@+id/tournamentContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" />

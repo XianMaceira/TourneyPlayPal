@@ -5,10 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.tourneyplaypal"
     compileSdk = 34
 
+
     defaultConfig {
+        namespace = "com.example.tourneyplaypal"
         applicationId = "com.example.tourneyplaypal"
         minSdk = 23
         targetSdk = 33
@@ -19,6 +20,7 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        multiDexEnabled = true // Habilitar la compilación multidex
     }
 
     buildTypes {
@@ -43,10 +45,8 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
     }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
+    packagingOptions {
+        excludes.add("/META-INF/{AL2.0,LGPL2.1}")
     }
 }
 

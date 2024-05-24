@@ -6,4 +6,11 @@
     <color name="background">#ECEFF1</color>
     <color name="redLogout">#FC0303</color>
 
+    <!--- Colores para juegos -->
+    <color name="color_cs2">#E0881E</color>
+    <color name="color_fortnite">#2a095f</color>
+    <color name="color_r6">#101114</color>
+    <color name="color_rocket">#485fc7</color>
+    <color name="default_color">#A6A7AC</color>
+
 </resources>
