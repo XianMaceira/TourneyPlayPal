@@ -19,11 +19,11 @@ class TournamentAdapter(
         val tournamentTitle: TextView = itemView.findViewById(R.id.tournamentTitle)
         val tournamentGame: TextView = itemView.findViewById(R.id.tournamentGame)
         val tournamentPlayerCount: TextView = itemView.findViewById(R.id.tournamentPlayerCount)
-        val addButton: Button = itemView.findViewById(R.id.addButton)
+        val addButton: Button = itemView.findViewById(R.id.manageButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TournamentViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_tournament, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_tournament_mytournaments, parent, false)
         return TournamentViewHolder(itemView)
     }
 
