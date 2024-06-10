@@ -12,9 +12,10 @@ data class TournamentEntity(
     var host: String? = null,
     var winner: String? = null,
     var startDate: String? = null,
-    var endDate: String? = null,
     var isFull: Boolean? = null,
-    var players: MutableList<String> = mutableListOf()
+    var players: MutableList<String> = mutableListOf(),
+    var ended: Boolean = false,
+    var endDate: String? = null,
 ) {
     fun toMap(): Map<String, Any?> {
         return mapOf(
@@ -26,9 +27,10 @@ data class TournamentEntity(
             "host" to host,
             "winner" to winner,
             "startDate" to startDate,
-            "endDate" to endDate,
             "isFull" to isFull,
-            "players" to players
+            "players" to players,
+            "ended" to ended,
+            "endDate" to endDate
         )
     }
 }

@@ -26,46 +26,63 @@
     }
   },
   "tournaments": {
-    "-Nziv4x2HL30nmIL333F": {
-      "currentPlayers": 1,
-      "endDate": "1717959619088",
-      "game": "Fortnite",
+    "-O-1f2XH8fsbq8f07SAN": {
+      "currentPlayers": 0,
+      "endDate": "1718290970816",
+      "game": "Rocket League",
       "host": "abc@gmail.com",
-      "id": "-Nziv4x2HL30nmIL333F",
-      "name": "",
-      "playerCount": 2,
-      "players": [
-        "abc@gmail.com"
-      ],
-      "startDate": "1717700419088"
+      "id": "-O-1f2XH8fsbq8f07SAN",
+      "name": "RLCS",
+      "playerCount": 4,
+      "startDate": "1718031770816",
+      "ended": false
     },
-    "-NzivByOzyD5j55KhgTY": {
-      "currentPlayers": 1,
-      "endDate": "1717959647847",
-      "game": "Fortnite",
+    "-O-1f9_oELDF3eL8ynr1": {
+      "currentPlayers": 2,
+      "endDate": "1718290999713",
+      "game": "Rainbow Six",
       "host": "abc@gmail.com",
-      "id": "-NzivByOzyD5j55KhgTY",
-      "name": "Test",
+      "id": "-O-1f9_oELDF3eL8ynr1",
+      "name": "R6 Winter Seasonal",
       "playerCount": 8,
       "players": [
+        "abc@gmail.com",
+        "test@gmail.com"
+      ],
+      "startDate": "1718031799713",
+      "winner": "abc@gmail.com",
+      "ended": true
+    },
+    "-O-1fDd7Ls1UuaeY5qbQ": {
+      "currentPlayers": 1,
+      "endDate": "1718291016309",
+      "game": "Fortnite",
+      "host": "abc@gmail.com",
+      "id": "-O-1fDd7Ls1UuaeY5qbQ",
+      "name": "Cash Cup",
+      "playerCount": 16,
+      "players": [
         "abc@gmail.com"
       ],
-      "startDate": "1717700447847"
+      "startDate": "1718031816309",
+      "ended": true
     },
-    "-O-11QoW0aVLLf2ycs7y": {
-      "currentPlayers": 2,
-      "endDate": "1718280322078",
+    "-O-1fQmVtDyqWlEYW40A": {
+      "currentPlayers": 3,
+      "endDate": "1718291070157",
       "game": "CS2",
       "host": "abc@gmail.com",
-      "id": "-O-11QoW0aVLLf2ycs7y",
-      "name": "CS2 Major Shangai",
-      "playerCount": 2,
+      "id": "-O-1fQmVtDyqWlEYW40A",
+      "name": "Ohnepixel 1v1",
+      "playerCount": 8,
       "players": [
         "abc@gmail.com",
-        "tman1a@gmail.com"
+        "tman1a@gmail.com",
+        "test@gmail.com"
       ],
-      "startDate": "1718021122078",
-      "winner": "tman1a@gmail.com"
+      "startDate": "1718031870157",
+      "winner": "tman1a@gmail.com",
+      "ended": true
     }
   },
   "users": {

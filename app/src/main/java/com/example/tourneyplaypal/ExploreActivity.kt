@@ -17,6 +17,7 @@ class ExploreActivity : AppCompatActivity() {
     private lateinit var switchR6: Switch
     private lateinit var switchRL: Switch
     private lateinit var switchFortnite: Switch
+    private lateinit var showFullCheckBox: CheckBox
     private lateinit var database: DatabaseReference
     private lateinit var auth: FirebaseAuth
 
@@ -43,6 +44,7 @@ class ExploreActivity : AppCompatActivity() {
         switchR6 = findViewById(R.id.switchR6)
         switchRL = findViewById(R.id.switchRL)
         switchFortnite = findViewById(R.id.switchFortnite)
+        showFullCheckBox = findViewById(R.id.showFullCheckBox)
 
         database = FirebaseDatabase.getInstance().reference.child("tournaments")
         auth = FirebaseAuth.getInstance()
@@ -51,6 +53,7 @@ class ExploreActivity : AppCompatActivity() {
         switchR6.setOnCheckedChangeListener { _, _ -> loadTournaments() }
         switchRL.setOnCheckedChangeListener { _, _ -> loadTournaments() }
         switchFortnite.setOnCheckedChangeListener { _, _ -> loadTournaments() }
+        showFullCheckBox.setOnCheckedChangeListener { _, _ -> loadTournaments() }
 
         loadTournaments()
 
@@ -66,7 +69,7 @@ class ExploreActivity : AppCompatActivity() {
                 tournamentContainer.removeAllViews()
                 for (tournamentSnapshot in snapshot.children) {
                     val tournament = tournamentSnapshot.getValue(TournamentEntity::class.java)
-                    if (tournament != null && isGameSelected(tournament.game)) {
+                    if (tournament != null && isGameSelected(tournament.game) && !tournament.ended && (tournament.currentPlayers < tournament.playerCount || showFullCheckBox.isChecked)) {
                         addTournamentView(tournament)
                     }
                 }
@@ -77,6 +80,8 @@ class ExploreActivity : AppCompatActivity() {
             }
         })
     }
+
+
 
     private fun isGameSelected(game: String?): Boolean {
         return when (game) {

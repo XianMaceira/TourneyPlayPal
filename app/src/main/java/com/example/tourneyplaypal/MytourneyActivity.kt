@@ -65,7 +65,7 @@ class MytourneyActivity : AppCompatActivity() {
                 tournamentContainer.removeAllViews()
                 for (dataSnapshot in snapshot.children) {
                     val tournament = dataSnapshot.getValue(TournamentEntity::class.java)
-                    if (tournament != null && (tournament.host == currentUserEmail || isUserParticipating(currentUserEmail, tournament))) {
+                    if (tournament != null && !tournament.ended && (tournament.host == currentUserEmail || isUserParticipating(currentUserEmail, tournament))) {
                         addTournamentView(tournamentContainer, tournament)
                     }
                 }
@@ -80,6 +80,7 @@ class MytourneyActivity : AppCompatActivity() {
     private fun isUserParticipating(currentUserEmail: String?, tournament: TournamentEntity): Boolean {
         return tournament.players?.contains(currentUserEmail) ?: false
     }
+
 
 
     @SuppressLint("MissingInflatedId")
@@ -105,7 +106,6 @@ class MytourneyActivity : AppCompatActivity() {
 
         val currentUserEmail = FirebaseAuth.getInstance().currentUser?.email
         if (tournament.host == currentUserEmail) {
-            manageButton.text = "Gestionar Torneo"
             manageButton.setOnClickListener {
                 showManageTournamentDialog(tournament)
             }
@@ -151,7 +151,7 @@ class MytourneyActivity : AppCompatActivity() {
             .setCancelable(true)
             .setSingleChoiceItems(participants.toTypedArray(), -1) { dialog, which ->
                 val selectedWinner = participants[which]
-                updateWinnerInFirebase(tournament, selectedWinner)
+                updateWinnerAndEndDateInFirebase(tournament, selectedWinner)
                 dialog.dismiss()
             }
             .setNegativeButton("Cancelar") { dialog, _ ->
@@ -162,30 +162,37 @@ class MytourneyActivity : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun updateWinnerInFirebase(tournament: TournamentEntity, winnerEmail: String) {
+    private fun updateWinnerAndEndDateInFirebase(tournament: TournamentEntity, winnerEmail: String) {
         val database = FirebaseDatabase.getInstance()
         val tournamentRef = database.getReference("tournaments").child(tournament.id ?: "")
 
+        val endDate = System.currentTimeMillis()
+
         tournamentRef.child("winner").setValue(winnerEmail)
             .addOnSuccessListener {
-                updateUsersHistory(tournament, winnerEmail)
-                val calendar = Calendar.getInstance()
-                calendar.add(Calendar.HOUR_OF_DAY, 24)
-                val endTimeMillis = calendar.timeInMillis
-
-                Timer().schedule(object : TimerTask() {
-                    override fun run() {
-                        tournamentRef.removeValue()
+                tournamentRef.child("ended").setValue(true)
+                    .addOnSuccessListener {
+                        tournamentRef.child("endDate").setValue(endDate.toString())
+                            .addOnSuccessListener {
+                                updateUsersHistory(tournament, winnerEmail)
+                            }
                             .addOnFailureListener { e ->
-                                Log.e("MytourneyActivity", "Error al eliminar el torneo", e)
+                                Log.e("MytourneyActivity", "Error al actualizar fecha de finalización", e)
                             }
                     }
-                }, endTimeMillis)
+                    .addOnFailureListener { e ->
+                        Log.e("MytourneyActivity", "Error al establecer torneo como finalizado", e)
+                    }
             }
             .addOnFailureListener { e ->
                 Log.e("MytourneyActivity", "Error al seleccionar ganador", e)
             }
     }
+
+
+
+
+
 
     private fun updateUsersHistory(tournament: TournamentEntity, winnerEmail: String) {
         val database = FirebaseDatabase.getInstance().reference
@@ -196,26 +203,25 @@ class MytourneyActivity : AppCompatActivity() {
             val userStatsRef = database.child("users").child(formattedEmail)
 
             val historyStatus = if (playerEmail == winnerEmail) "Ganador" else "Jugado"
-            userHistoryRef.child(tournament.id!!).setValue(historyStatus)
+            val historyData = mapOf(
+                "name" to (tournament.name ?: "Torneo sin nombre"),
+                "game" to (tournament.game ?: "Juego desconocido"),
+                "status" to historyStatus
+            )
+
+            userHistoryRef.child(tournament.id!!).setValue(historyData)
                 .addOnSuccessListener {
                     Log.d("MytourneyActivity", "Historial actualizado para $playerEmail")
 
-                    // Actualizaremos las estadísticas de los usuarios dependiendo de si ganan o no
+                    // Actualizar estadísticas de los usuarios dependiendo de si ganan o no
                     userStatsRef.runTransaction(object : Transaction.Handler {
                         override fun doTransaction(mutableData: MutableData): Transaction.Result {
-                            var participations = mutableData.child("participations").getValue(Int::class.java)
-                            if (participations == null) {
-                                participations = 0
-                            }
+                            var participations = mutableData.child("participations").getValue(Int::class.java) ?: 0
                             participations += 1
-
                             mutableData.child("participations").value = participations
 
                             if (playerEmail == winnerEmail) {
-                                var wins = mutableData.child("wins").getValue(Int::class.java)
-                                if (wins == null) {
-                                    wins = 0
-                                }
+                                var wins = mutableData.child("wins").getValue(Int::class.java) ?: 0
                                 wins += 1
                                 mutableData.child("wins").value = wins
                             }
@@ -237,7 +243,6 @@ class MytourneyActivity : AppCompatActivity() {
                 }
         }
     }
-
 
 
 
@@ -462,13 +467,15 @@ class MytourneyActivity : AppCompatActivity() {
         tournament.host = currentUserEmail
         tournament.winner = null
         tournament.startDate = System.currentTimeMillis().toString()
+        tournament.ended = false
 
-        val threeDaysMillis = 3 * 24 * 60 * 60 * 1000
-        tournament.endDate = (System.currentTimeMillis() + threeDaysMillis).toString()
         tournament.id = reference.key
 
         Log.d("MyTourneyActivity", "Tournament Details: $tournament")
 
         reference.setValue(tournament.toMap())
     }
+
 }
+
+

@@ -1,5 +1,6 @@
 package com.example.tourneyplaypal
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +14,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import java.lang.Exception
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class RecordActivity : AppCompatActivity() {
 
@@ -55,34 +59,47 @@ class RecordActivity : AppCompatActivity() {
                             override fun onDataChange(snapshot: DataSnapshot) {
                                 recordContainer.removeAllViews()
                                 for (dataSnapshot in snapshot.children) {
-                                    val recordStatus = dataSnapshot.getValue(String::class.java)
+                                    val recordStatusMap = dataSnapshot.value as? HashMap<*, *>
+                                    val recordStatus = recordStatusMap?.get("status") as? String ?: dataSnapshot.getValue(String::class.java)
                                     val tournamentId = dataSnapshot.key
+
                                     if (recordStatus != null && tournamentId != null) {
                                         FirebaseDatabase.getInstance("https://xmb-tourneyplaypal-default-rtdb.europe-west1.firebasedatabase.app/")
                                             .getReference("tournaments").child(tournamentId).addListenerForSingleValueEvent(object : ValueEventListener {
+                                                @SuppressLint("MissingInflatedId")
                                                 override fun onDataChange(tournamentSnapshot: DataSnapshot) {
                                                     val tournamentName = tournamentSnapshot.child("name").getValue(String::class.java) ?: "N/A"
                                                     val gameName = tournamentSnapshot.child("game").getValue(String::class.java) ?: "N/A"
+                                                    val endDateInMillis = tournamentSnapshot.child("endDate").getValue(String::class.java) ?: "N/A"
+
                                                     val recordView = LayoutInflater.from(this@RecordActivity).inflate(R.layout.item_tournament_record, recordContainer, false)
                                                     val tournamentTitle = recordView.findViewById<TextView>(R.id.tournamentTitle)
                                                     val tournamentStatus = recordView.findViewById<TextView>(R.id.tournamentStatus)
                                                     val tournamentGameLogo = recordView.findViewById<ImageView>(R.id.tournamentGameLogo)
                                                     val tournamentRecordContainer = recordView.findViewById<LinearLayout>(R.id.tournamentRecordContainer)
+                                                    val tournamentEndDate = recordView.findViewById<TextView>(R.id.tournamentEndDate)
 
+                                                    val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                                                    val endDate = if (endDateInMillis != "N/A") {
+                                                        sdf.format(Date(endDateInMillis.toLong()))
+                                                    } else {
+                                                        "N/A"
+                                                    }
 
                                                     tournamentTitle.text = tournamentName
                                                     tournamentStatus.text = recordStatus
+                                                    tournamentEndDate.text = endDate
+
                                                     tournamentStatus.setTextColor(
                                                         if (recordStatus == "Ganador") resources.getColor(R.color.color_win)
                                                         else resources.getColor(R.color.color_played)
                                                     )
 
-
                                                     val (gameLogo, backgroundColor) = getGameLogoAndColor(gameName)
                                                     tournamentGameLogo.setImageResource(gameLogo)
                                                     tournamentRecordContainer.setBackgroundColor(resources.getColor(backgroundColor))
 
-                                                    recordContainer.addView(recordView)
+                                                    recordContainer.addView(recordView, 0)
                                                 }
 
                                                 override fun onCancelled(error: DatabaseError) {
@@ -90,6 +107,8 @@ class RecordActivity : AppCompatActivity() {
                                                     Log.e(TAG, "Error al cargar los detalles del torneo", error.toException())
                                                 }
                                             })
+                                    } else {
+                                        Log.e(TAG, "recordStatus o tournamentId es nulo. recordStatus: $recordStatus, tournamentId: $tournamentId")
                                     }
                                 }
                             }
@@ -99,6 +118,7 @@ class RecordActivity : AppCompatActivity() {
                                 Log.e(TAG, "Error al cargar el historial", error.toException())
                             }
                         })
+
                     } catch (e: Exception) {
                         showErrorToast("Error al procesar los datos del usuario")
                         Log.e(TAG, "Error al procesar los datos del usuario", e)

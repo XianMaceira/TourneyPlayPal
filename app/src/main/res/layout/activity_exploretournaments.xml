@@ -21,8 +21,8 @@
 
     <ScrollView
         android:id="@+id/scrollViewTournaments"
-        android:layout_width="393dp"
-        android:layout_height="438dp"
+        android:layout_width="398dp"
+        android:layout_height="420dp"
         android:padding="16dp"
         app:layout_constraintBottom_toTopOf="@id/backHomeFromExploreButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +53,7 @@
         android:id="@+id/switchCS2"
         android:layout_width="140dp"
         android:layout_height="34dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:checked="true"
         android:text="CS2"
@@ -64,31 +64,47 @@
         android:id="@+id/switchR6"
         android:layout_width="140dp"
         android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
         android:checked="true"
         android:text="Rainbow Six"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/switchCS2" />
+        app:layout_constraintTop_toBottomOf="@+id/exploreTourneyTitlePage" />
 
     <Switch
         android:id="@+id/switchRL"
         android:layout_width="154dp"
         android:layout_height="35dp"
-        android:layout_marginStart="104dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="12dp"
         android:checked="true"
         android:text="Rocket League"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/switchCS2"
-        app:layout_constraintTop_toTopOf="@id/switchCS2" />
+        app:layout_constraintTop_toBottomOf="@+id/exploreTourneyTitlePage" />
 
     <Switch
         android:id="@+id/switchFortnite"
         android:layout_width="153dp"
         android:layout_height="37dp"
-        android:layout_marginStart="104dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="60dp"
         android:checked="true"
         android:text="Fortnite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.566"
         app:layout_constraintStart_toEndOf="@id/switchR6"
-        app:layout_constraintTop_toTopOf="@id/switchR6" />
+        app:layout_constraintTop_toBottomOf="@+id/exploreTourneyTitlePage" />
+
+    <CheckBox
+        android:id="@+id/showFullCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Mostrar torneos llenos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exploreTourneyTitlePage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
