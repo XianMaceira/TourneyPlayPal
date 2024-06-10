@@ -142,7 +142,18 @@ class ExploreActivity : AppCompatActivity() {
                 tournamentRef.child("players").addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         val players = snapshot.children.mapNotNull { it.getValue(String::class.java) }.toMutableList()
-                        if (!players.contains(currentUserEmail)) {
+                        if (players.size >= tournament.playerCount) {
+
+                            val dialogBuilder = AlertDialog.Builder(activityContext)
+                            dialogBuilder.setMessage("El torneo ya está lleno y no se pueden añadir más jugadores.")
+                                .setCancelable(false)
+                                .setPositiveButton("Aceptar") { dialog, _ ->
+                                    dialog.dismiss()
+                                }
+                            val alert = dialogBuilder.create()
+                            alert.setTitle("Torneo lleno")
+                            alert.show()
+                        } else if (!players.contains(currentUserEmail)) {
                             players.add(currentUserEmail)
                             tournamentRef.child("players").setValue(players)
                             tournamentRef.child("currentPlayers").setValue(tournament.currentPlayers + 1)
@@ -153,7 +164,6 @@ class ExploreActivity : AppCompatActivity() {
                                 .setPositiveButton("Aceptar") { dialog, _ ->
                                     dialog.dismiss()
                                 }
-
                             val alert = dialogBuilder.create()
                             alert.setTitle("Error")
                             alert.show()
@@ -169,6 +179,7 @@ class ExploreActivity : AppCompatActivity() {
             }
         }
     }
+
 
 
 }

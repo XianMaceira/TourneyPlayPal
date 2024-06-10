@@ -1,0 +1,64 @@
+{
+  "games": {
+    "-NydfQP0J1DB8U5gPbyk": {
+      "genre": "Battle Royale",
+      "id": "-NydfQP0J1DB8U5gPbyk",
+      "name": "Fortnite",
+      "platform": "Multi-platform"
+    },
+    "-NydfQPeS9VtC8MkZXJR": {
+      "genre": "First-Person Shooter",
+      "id": "-NydfQPeS9VtC8MkZXJR",
+      "name": "CS2",
+      "platform": "PC"
+    },
+    "-NydfQQoo43VuNuwZ7li": {
+      "genre": "Sports",
+      "id": "-NydfQQoo43VuNuwZ7li",
+      "name": "Rocket League",
+      "platform": "Multi-platform"
+    },
+    "-Nyduv53ZTNBlqQjDdFV": {
+      "genre": "First-Person Shooter",
+      "id": "-Nyduv53ZTNBlqQjDdFV",
+      "name": "Rainbow Six",
+      "platform": "Multi-platform"
+    }
+  },
+  "tournaments": {
+    "-Nziv4x2HL30nmIL333F": {
+      "currentPlayers": 1,
+      "endDate": "1717959619088",
+      "game": "Fortnite",
+      "host": "abc@gmail.com",
+      "id": "-Nziv4x2HL30nmIL333F",
+      "name": "",
+      "playerCount": 2,
+      "players": [
+        "abc@gmail.com"
+      ],
+      "startDate": "1717700419088"
+    },
+    "-NzivByOzyD5j55KhgTY": {
+      "currentPlayers": 1,
+      "endDate": "1717959647847",
+      "game": "Fortnite",
+      "host": "abc@gmail.com",
+      "id": "-NzivByOzyD5j55KhgTY",
+      "name": "Test",
+      "playerCount": 8,
+      "players": [
+        "abc@gmail.com"
+      ],
+      "startDate": "1717700447847"
+    }
+  },
+  "users": {
+    "abc@gmail,com": {
+      "history": {
+        "-Nziv4x2HL30nmIL333F": "Participated",
+        "-NzivByOzyD5j55KhgTY": "Participated"
+      }
+    }
+  }
+}

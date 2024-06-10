@@ -28,7 +28,7 @@ class HomeActivity : AppCompatActivity()  {
         val logoutButton = findViewById<Button>(R.id.logoutButton)
         val goToMyTourneysButton = findViewById<Button>(R.id.mytourneysButton)
         val goToExploreButton = findViewById<Button>(R.id.exploreButton)
-
+        val recordButton = findViewById<Button>(R.id.recordButton)
 
         emailTextView.text = email
 
@@ -37,6 +37,14 @@ class HomeActivity : AppCompatActivity()  {
             onBackPressedDispatcher
             finish()
         }
+
+        recordButton.setOnClickListener {
+            val RecordIntent = Intent(this, RecordActivity::class.java).apply {
+
+            }
+            startActivity(RecordIntent)
+        }
+
         goToMyTourneysButton.setOnClickListener {
 
             val MyTourneysIntent = Intent(this, MytourneyActivity::class.java).apply {

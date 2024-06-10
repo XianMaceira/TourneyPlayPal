@@ -51,29 +51,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.062" />
 
-    <TextView
-        android:id="@+id/loggedAsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/lalezar"
-        android:text="Tu Cuenta"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/emailTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="336dp"
         android:layout_height="59dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/loggedAsTextView"
+        app:layout_constraintBottom_toTopOf="@+id/recordButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView"
-        app:layout_constraintVertical_bias="0.908">
+        app:layout_constraintVertical_bias="0.948">
 
         <Button
             android:id="@+id/mytourneysButton"
@@ -91,4 +79,16 @@
             android:background="#ffffff"
             android:text="Explorar" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/recordButton"
+        android:layout_width="338dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="28dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:text="historial"
+        app:layout_constraintBottom_toTopOf="@+id/emailTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

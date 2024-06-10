@@ -13,11 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TourneyPlayPal"
         tools:targetApi="31">
+
         <activity
             android:name=".HomeActivity"
             android:exported="false"
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.TourneyPlayPal" />
+
         <activity
             android:name="com.example.tourneyplaypal.AuthActivity"
             android:exported="true"
@@ -25,13 +27,13 @@
             android:theme="@style/Theme.TourneyPlayPal">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <activity android:name=".ExploreActivity"/>
         <activity android:name=".MytourneyActivity"/>
+        <activity android:name=".RecordActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"

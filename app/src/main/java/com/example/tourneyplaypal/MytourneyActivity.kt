@@ -168,6 +168,7 @@ class MytourneyActivity : AppCompatActivity() {
 
         tournamentRef.child("winner").setValue(winnerEmail)
             .addOnSuccessListener {
+                updateUsersHistory(tournament, winnerEmail)
                 val calendar = Calendar.getInstance()
                 calendar.add(Calendar.HOUR_OF_DAY, 24)
                 val endTimeMillis = calendar.timeInMillis
@@ -185,6 +186,23 @@ class MytourneyActivity : AppCompatActivity() {
                 Log.e("MytourneyActivity", "Error al seleccionar ganador", e)
             }
     }
+
+    private fun updateUsersHistory(tournament: TournamentEntity, winnerEmail: String) {
+        val database = FirebaseDatabase.getInstance().reference
+
+        tournament.players?.forEach { playerEmail ->
+            val userHistoryRef = database.child("users").child(playerEmail.replace(".", ",")).child("history")
+            val historyStatus = if (playerEmail == winnerEmail) "Ganador" else "Jugado"
+            userHistoryRef.child(tournament.id!!).setValue(historyStatus)
+                .addOnSuccessListener {
+                    Log.d("MytourneyActivity", "Historial actualizado para $playerEmail")
+                }
+                .addOnFailureListener { e ->
+                    Log.e("MytourneyActivity", "Error al actualizar historial de $playerEmail", e)
+                }
+        }
+    }
+
 
 
     private fun showExpelPlayerDialog(tournament: TournamentEntity) {
