@@ -191,17 +191,53 @@ class MytourneyActivity : AppCompatActivity() {
         val database = FirebaseDatabase.getInstance().reference
 
         tournament.players?.forEach { playerEmail ->
-            val userHistoryRef = database.child("users").child(playerEmail.replace(".", ",")).child("history")
+            val formattedEmail = playerEmail.replace(".", ",")
+            val userHistoryRef = database.child("users").child(formattedEmail).child("history")
+            val userStatsRef = database.child("users").child(formattedEmail)
+
             val historyStatus = if (playerEmail == winnerEmail) "Ganador" else "Jugado"
             userHistoryRef.child(tournament.id!!).setValue(historyStatus)
                 .addOnSuccessListener {
                     Log.d("MytourneyActivity", "Historial actualizado para $playerEmail")
+
+                    // Actualizaremos las estadísticas de los usuarios dependiendo de si ganan o no
+                    userStatsRef.runTransaction(object : Transaction.Handler {
+                        override fun doTransaction(mutableData: MutableData): Transaction.Result {
+                            var participations = mutableData.child("participations").getValue(Int::class.java)
+                            if (participations == null) {
+                                participations = 0
+                            }
+                            participations += 1
+
+                            mutableData.child("participations").value = participations
+
+                            if (playerEmail == winnerEmail) {
+                                var wins = mutableData.child("wins").getValue(Int::class.java)
+                                if (wins == null) {
+                                    wins = 0
+                                }
+                                wins += 1
+                                mutableData.child("wins").value = wins
+                            }
+
+                            return Transaction.success(mutableData)
+                        }
+
+                        override fun onComplete(databaseError: DatabaseError?, committed: Boolean, dataSnapshot: DataSnapshot?) {
+                            if (databaseError != null) {
+                                Log.e("MytourneyActivity", "Error al actualizar estadísticas de $playerEmail", databaseError.toException())
+                            } else {
+                                Log.d("MytourneyActivity", "Estadísticas actualizadas para $playerEmail")
+                            }
+                        }
+                    })
                 }
                 .addOnFailureListener { e ->
                     Log.e("MytourneyActivity", "Error al actualizar historial de $playerEmail", e)
                 }
         }
     }
+
 
 
 

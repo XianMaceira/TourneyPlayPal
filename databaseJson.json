@@ -51,14 +51,37 @@
         "abc@gmail.com"
       ],
       "startDate": "1717700447847"
+    },
+    "-O-11QoW0aVLLf2ycs7y": {
+      "currentPlayers": 2,
+      "endDate": "1718280322078",
+      "game": "CS2",
+      "host": "abc@gmail.com",
+      "id": "-O-11QoW0aVLLf2ycs7y",
+      "name": "CS2 Major Shangai",
+      "playerCount": 2,
+      "players": [
+        "abc@gmail.com",
+        "tman1a@gmail.com"
+      ],
+      "startDate": "1718021122078",
+      "winner": "tman1a@gmail.com"
     }
   },
   "users": {
     "abc@gmail,com": {
       "history": {
-        "-Nziv4x2HL30nmIL333F": "Participated",
-        "-NzivByOzyD5j55KhgTY": "Participated"
-      }
+        "-O-11QoW0aVLLf2ycs7y": "Jugado"
+      },
+      "participations": 10,
+      "wins": 0
+    },
+    "tman1a@gmail,com": {
+      "history": {
+        "-O-11QoW0aVLLf2ycs7y": "Ganador"
+      },
+      "participations": 1,
+      "wins": 1
     }
   }
 }

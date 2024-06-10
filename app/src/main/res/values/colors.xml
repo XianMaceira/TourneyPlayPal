@@ -13,4 +13,8 @@
     <color name="color_rocket">#485fc7</color>
     <color name="default_color">#A6A7AC</color>
 
+    <!--- Colores para resultados -->
+    <color name="color_win">#49E308</color>
+    <color name="color_played">#484849</color>
+
 </resources>
