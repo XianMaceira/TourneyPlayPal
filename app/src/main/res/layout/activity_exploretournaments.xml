@@ -23,12 +23,14 @@
         android:id="@+id/scrollViewTournaments"
         android:layout_width="398dp"
         android:layout_height="420dp"
+        android:background="@color/default_color"
         android:padding="16dp"
         app:layout_constraintBottom_toTopOf="@id/backHomeFromExploreButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/exploreTourneyTitlePage"
-        app:layout_constraintVertical_bias="0.773">
+        app:layout_constraintVertical_bias="0.786">
 
         <LinearLayout
             android:id="@+id/tournamentContainer"

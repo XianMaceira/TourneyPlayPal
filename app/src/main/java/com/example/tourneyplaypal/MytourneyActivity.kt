@@ -18,7 +18,6 @@ import java.util.*
 
 class MytourneyActivity : AppCompatActivity() {
 
-    private val playerCounts = arrayOf("4", "8", "16")
     private val gameColors = mapOf(
         "CS2" to R.color.color_cs2,
         "Fortnite" to R.color.color_fortnite,
@@ -93,10 +92,12 @@ class MytourneyActivity : AppCompatActivity() {
         val tournamentPlayerCount = tournamentView.findViewById<TextView>(R.id.tournamentPlayerCount)
         val manageButton = tournamentView.findViewById<Button>(R.id.manageButton)
         val tournamentImage = tournamentView.findViewById<ImageView>(R.id.tournamentImage)
+        val adminEmailTextView = tournamentView.findViewById<TextView>(R.id.adminEmail)
 
         tournamentTitle.text = tournament.name
         tournamentGame.text = tournament.game
         tournamentPlayerCount.text = "${tournament.currentPlayers} / ${tournament.playerCount}"
+        adminEmailTextView.text = "Host: ${tournament.host?.substringBefore("@")}"
 
         val colorRes = gameColors[tournament.game] ?: R.color.default_color
         val imageRes = gameImages[tournament.game] ?: R.drawable.new_icon
@@ -109,11 +110,10 @@ class MytourneyActivity : AppCompatActivity() {
             manageButton.setOnClickListener {
                 showManageTournamentDialog(tournament)
             }
-
         } else {
             val isUserParticipating = isUserParticipating(currentUserEmail, tournament)
             if (isUserParticipating) {
-                manageButton.text = "Abandonar Torneo"
+                manageButton.text = "Abandonar"
                 manageButton.setOnClickListener {
                     showLeaveTournamentDialog(tournament, currentUserEmail!!)
                 }
@@ -124,6 +124,7 @@ class MytourneyActivity : AppCompatActivity() {
 
         container.addView(tournamentView)
     }
+
 
     private fun showManageTournamentDialog(tournament: TournamentEntity) {
         val dialogBuilder = AlertDialog.Builder(this)
@@ -151,8 +152,21 @@ class MytourneyActivity : AppCompatActivity() {
             .setCancelable(true)
             .setSingleChoiceItems(participants.toTypedArray(), -1) { dialog, which ->
                 val selectedWinner = participants[which]
-                updateWinnerAndEndDateInFirebase(tournament, selectedWinner)
                 dialog.dismiss()
+
+                // Confirmacion
+                val confirmDialogBuilder = AlertDialog.Builder(this)
+                confirmDialogBuilder.setTitle("Confirmar ganador")
+                    .setMessage("¿Estás seguro de que deseas seleccionar a $selectedWinner como ganador?")
+                    .setPositiveButton("Sí") { _, _ ->
+                        updateWinnerAndEndDateInFirebase(tournament, selectedWinner)
+                    }
+                    .setNegativeButton("No") { confirmDialog, _ ->
+                        confirmDialog.dismiss()
+                    }
+
+                val confirmDialog = confirmDialogBuilder.create()
+                confirmDialog.show()
             }
             .setNegativeButton("Cancelar") { dialog, _ ->
                 dialog.dismiss()
@@ -161,6 +175,7 @@ class MytourneyActivity : AppCompatActivity() {
         val dialog = dialogBuilder.create()
         dialog.show()
     }
+
 
     private fun updateWinnerAndEndDateInFirebase(tournament: TournamentEntity, winnerEmail: String) {
         val database = FirebaseDatabase.getInstance()
@@ -266,7 +281,7 @@ class MytourneyActivity : AppCompatActivity() {
         val players = tournament.players ?: return
         val currentUserEmail = FirebaseAuth.getInstance().currentUser?.email
 
-        // Filtrar la lista de jugadores para excluir al usuario actual, el host no se puede echar a si mismo
+        // Filtrar la lista de jugadores para excluir al usuario actual, el host no se puede echar a sí mismo
         val filteredPlayers = players.filter { it != currentUserEmail }
         val playerEmails = filteredPlayers.toTypedArray()
 
@@ -274,8 +289,21 @@ class MytourneyActivity : AppCompatActivity() {
         dialogBuilder.setTitle("Seleccionar Jugador a Expulsar")
             .setSingleChoiceItems(playerEmails, -1) { dialog, which ->
                 val playerToExpel = playerEmails[which]
-                expelPlayerFromTournament(tournament, playerToExpel)
                 dialog.dismiss()
+
+                // Confirmación
+                val confirmDialogBuilder = AlertDialog.Builder(this)
+                confirmDialogBuilder.setTitle("Confirmar Expulsión")
+                    .setMessage("¿Estás seguro de que deseas expulsar a $playerToExpel del torneo?")
+                    .setPositiveButton("Sí") { _, _ ->
+                        expelPlayerFromTournament(tournament, playerToExpel)
+                    }
+                    .setNegativeButton("No") { confirmDialog, _ ->
+                        confirmDialog.dismiss()
+                    }
+
+                val confirmDialog = confirmDialogBuilder.create()
+                confirmDialog.show()
             }
             .setNegativeButton("Cancelar") { dialog, _ ->
                 dialog.dismiss()
@@ -284,6 +312,7 @@ class MytourneyActivity : AppCompatActivity() {
         val dialog = dialogBuilder.create()
         dialog.show()
     }
+
 
     private fun expelPlayerFromTournament(tournament: TournamentEntity, playerToExpel: String) {
         val database = FirebaseDatabase.getInstance()
@@ -316,7 +345,7 @@ class MytourneyActivity : AppCompatActivity() {
 
     private fun cancelAndDeleteTournament(tournament: TournamentEntity) {
         val dialogBuilder = AlertDialog.Builder(this)
-        dialogBuilder.setTitle("Cancelar y borrar torneo")
+        dialogBuilder.setTitle("Confirmar Cancelación y Borrado")
             .setMessage("¿Estás seguro de que quieres cancelar y borrar este torneo?")
             .setCancelable(true)
             .setPositiveButton("Sí") { _, _ ->
@@ -339,6 +368,7 @@ class MytourneyActivity : AppCompatActivity() {
         val dialog = dialogBuilder.create()
         dialog.show()
     }
+
 
     private fun showLeaveTournamentDialog(tournament: TournamentEntity, currentUserEmail: String) {
         val dialogBuilder = AlertDialog.Builder(this)
@@ -392,7 +422,7 @@ class MytourneyActivity : AppCompatActivity() {
                 val checkBoxJoinTournament = dialog.findViewById<CheckBox>(R.id.checkBoxJoinTournament)
                 val buttonCreateTournament = dialog.findViewById<Button>(R.id.buttonCreateTournament)
 
-                val playerCounts = listOf(2, 4, 8, 16)
+                val playerCounts = listOf(2, 4, 8, 16, 32, 100)
                 val playerCountAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, playerCounts)
                 playerCountAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 spinnerPlayerCount.adapter = playerCountAdapter

@@ -5,13 +5,15 @@
     <color name="colorAccent">#039BE5</color>
     <color name="background">#ECEFF1</color>
     <color name="redLogout">#FC0303</color>
+    <color name="black">#090909</color>
+
 
     <!--- Colores para juegos -->
     <color name="color_cs2">#E0881E</color>
     <color name="color_fortnite">#2a095f</color>
     <color name="color_r6">#101114</color>
     <color name="color_rocket">#485fc7</color>
-    <color name="default_color">#A6A7AC</color>
+    <color name="default_color">#9AF9F9FB</color>
 
     <!--- Colores para resultados -->
     <color name="color_win">#49E308</color>

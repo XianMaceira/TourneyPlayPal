@@ -102,10 +102,13 @@ class ExploreActivity : AppCompatActivity() {
         val tournamentPlayerCount = tournamentView.findViewById<TextView>(R.id.tournamentPlayerCount)
         val tournamentImage = tournamentView.findViewById<ImageView>(R.id.tournamentImage)
         val joinButton = tournamentView.findViewById<Button>(R.id.manageButton)
+        val adminEmailTextView = tournamentView.findViewById<TextView>(R.id.adminEmail)
+
 
         tournamentTitle.text = tournament.name
         tournamentGame.text = tournament.game
         tournamentPlayerCount.text = "${tournament.currentPlayers}/${tournament.playerCount} jugadores"
+        adminEmailTextView.text = "Host: ${tournament.host?.substringBefore("@")}"
 
         val colorRes = gameColors[tournament.game] ?: R.color.default_color
         tournamentView.setBackgroundColor(resources.getColor(colorRes, null))
