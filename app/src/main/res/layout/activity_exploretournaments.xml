@@ -51,54 +51,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Switch
-        android:id="@+id/switchCS2"
-        android:layout_width="140dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
-        android:checked="true"
-        android:text="CS2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/exploreTourneyTitlePage" />
-
-    <Switch
-        android:id="@+id/switchR6"
-        android:layout_width="140dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="60dp"
-        android:checked="true"
-        android:text="Rainbow Six"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exploreTourneyTitlePage" />
-
-    <Switch
-        android:id="@+id/switchRL"
-        android:layout_width="154dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="12dp"
-        android:checked="true"
-        android:text="Rocket League"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/switchCS2"
-        app:layout_constraintTop_toBottomOf="@+id/exploreTourneyTitlePage" />
-
-    <Switch
-        android:id="@+id/switchFortnite"
-        android:layout_width="153dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="60dp"
-        android:checked="true"
-        android:text="Fortnite"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.566"
-        app:layout_constraintStart_toEndOf="@id/switchR6"
-        app:layout_constraintTop_toBottomOf="@+id/exploreTourneyTitlePage" />
-
     <CheckBox
         android:id="@+id/showFullCheckBox"
         android:layout_width="wrap_content"
@@ -108,5 +60,41 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exploreTourneyTitlePage" />
+
+    <Switch
+        android:id="@+id/switchCS2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="CS2"
+        app:layout_constraintEnd_toStartOf="@+id/exploreTourneyTitlePage"
+        tools:layout_editor_absoluteY="81dp" />
+
+    <Switch
+        android:id="@+id/switchR6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:text="R6"
+        app:layout_constraintStart_toEndOf="@+id/exploreTourneyTitlePage"
+        tools:layout_editor_absoluteY="81dp" />
+
+    <Switch
+        android:id="@+id/switchRL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="RL"
+        app:layout_constraintEnd_toStartOf="@+id/exploreTourneyTitlePage"
+        tools:layout_editor_absoluteY="128dp" />
+
+    <Switch
+        android:id="@+id/switchFortnite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Fortnite"
+        app:layout_constraintStart_toEndOf="@+id/exploreTourneyTitlePage"
+        tools:layout_editor_absoluteY="128dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

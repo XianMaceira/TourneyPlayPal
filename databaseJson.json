@@ -26,79 +26,485 @@
     }
   },
   "tournaments": {
-    "-O-1f2XH8fsbq8f07SAN": {
-      "currentPlayers": 0,
-      "endDate": "1718290970816",
-      "game": "Rocket League",
-      "host": "abc@gmail.com",
-      "id": "-O-1f2XH8fsbq8f07SAN",
-      "name": "RLCS",
-      "playerCount": 4,
-      "startDate": "1718031770816",
-      "ended": false
-    },
-    "-O-1f9_oELDF3eL8ynr1": {
+    "-O-1s0fFBXY6EZXZx5JW": {
       "currentPlayers": 2,
-      "endDate": "1718290999713",
-      "game": "Rainbow Six",
+      "ended": true,
+      "game": "CS2",
       "host": "abc@gmail.com",
-      "id": "-O-1f9_oELDF3eL8ynr1",
-      "name": "R6 Winter Seasonal",
+      "id": "-O-1s0fFBXY6EZXZx5JW",
+      "name": "CS2 Major",
+      "playerCount": 2,
+      "players": [
+        "abc@gmail.com",
+        "tman1a@gmail.com"
+      ],
+      "startDate": "1718035159773",
+      "winner": "tman1a@gmail.com"
+    },
+    "-O-1s4Hmkc6FDwg1-gFK": {
+      "currentPlayers": 2,
+      "ended": true,
+      "game": "Fortnite",
+      "host": "abc@gmail.com",
+      "id": "-O-1s4Hmkc6FDwg1-gFK",
+      "name": "Cash cup",
       "playerCount": 8,
       "players": [
         "abc@gmail.com",
         "test@gmail.com"
       ],
-      "startDate": "1718031799713",
-      "winner": "abc@gmail.com",
-      "ended": true
+      "startDate": "1718035174590",
+      "winner": "abc@gmail.com"
     },
-    "-O-1fDd7Ls1UuaeY5qbQ": {
-      "currentPlayers": 1,
-      "endDate": "1718291016309",
-      "game": "Fortnite",
+    "-O-1s81WIgo46niXPh--": {
+      "currentPlayers": 2,
+      "ended": true,
+      "game": "Rainbow Six",
       "host": "abc@gmail.com",
-      "id": "-O-1fDd7Ls1UuaeY5qbQ",
-      "name": "Cash Cup",
-      "playerCount": 16,
+      "id": "-O-1s81WIgo46niXPh--",
+      "name": "r6 seasonal",
+      "playerCount": 4,
       "players": [
-        "abc@gmail.com"
+        "abc@gmail.com",
+        "test@gmail.com"
       ],
-      "startDate": "1718031816309",
-      "ended": true
+      "startDate": "1718035189933",
+      "winner": "abc@gmail.com"
     },
-    "-O-1fQmVtDyqWlEYW40A": {
-      "currentPlayers": 3,
-      "endDate": "1718291070157",
+    "-O-1sAyxwTpYiD-ezlDV": {
+      "currentPlayers": 2,
+      "ended": true,
+      "game": "Rocket League",
+      "host": "abc@gmail.com",
+      "id": "-O-1sAyxwTpYiD-ezlDV",
+      "name": "rl cs",
+      "playerCount": 2,
+      "players": [
+        "abc@gmail.com",
+        "tman1a@gmail.com"
+      ],
+      "startDate": "1718035201993",
+      "winner": "abc@gmail.com"
+    },
+    "-O-1vIIOkaX0xDvmzxoG": {
+      "currentPlayers": 2,
+      "ended": true,
       "game": "CS2",
       "host": "abc@gmail.com",
-      "id": "-O-1fQmVtDyqWlEYW40A",
-      "name": "Ohnepixel 1v1",
-      "playerCount": 8,
+      "id": "-O-1vIIOkaX0xDvmzxoG",
+      "name": "CS2 TomatoCup",
+      "playerCount": 2,
+      "players": [
+        "abc@gmail.com",
+        "tman1a@gmail.com"
+      ],
+      "startDate": "1718036018403",
+      "winner": "tman1a@gmail.com"
+    },
+    "-O-1vR6Ts8yd6a1YfirR": {
+      "currentPlayers": 3,
+      "ended": true,
+      "game": "Rocket League",
+      "host": "abc@gmail.com",
+      "id": "-O-1vR6Ts8yd6a1YfirR",
+      "name": "Crampy's showmatch",
+      "playerCount": 4,
       "players": [
         "abc@gmail.com",
         "tman1a@gmail.com",
         "test@gmail.com"
       ],
-      "startDate": "1718031870157",
-      "winner": "tman1a@gmail.com",
-      "ended": true
+      "startDate": "1718036054503",
+      "winner": "test@gmail.com"
+    },
+    "-O-1yOFqiHddg3jYdPce": {
+      "currentPlayers": 2,
+      "ended": true,
+      "game": "Fortnite",
+      "host": "abc@gmail.com",
+      "id": "-O-1yOFqiHddg3jYdPce",
+      "name": "FNCS 1",
+      "playerCount": 2,
+      "players": [
+        "abc@gmail.com",
+        "tman1a@gmail.com"
+      ],
+      "startDate": "1718036829233",
+      "winner": "abc@gmail.com"
+    },
+    "-O-1yPkxndF1mo7IKO6n": {
+      "currentPlayers": 2,
+      "ended": true,
+      "game": "Fortnite",
+      "host": "abc@gmail.com",
+      "id": "-O-1yPkxndF1mo7IKO6n",
+      "name": "FNCS 2",
+      "playerCount": 2,
+      "players": [
+        "abc@gmail.com",
+        "tman1a@gmail.com"
+      ],
+      "startDate": "1718036835384",
+      "winner": "tman1a@gmail.com"
+    },
+    "-O-1ycSvAEnRONMfNKJQ": {
+      "currentPlayers": 2,
+      "ended": true,
+      "game": "CS2",
+      "host": "abc@gmail.com",
+      "id": "-O-1ycSvAEnRONMfNKJQ",
+      "name": "Crampy's viewers customs",
+      "playerCount": 4,
+      "players": [
+        "tman1a@gmail.com",
+        "test@gmail.com"
+      ],
+      "startDate": "1718036891510",
+      "winner": "tman1a@gmail.com"
+    },
+    "-O-1zMUO_6P-QI-owiig": {
+      "currentPlayers": 1,
+      "ended": true,
+      "game": "Rainbow Six",
+      "host": "abc@gmail.com",
+      "id": "-O-1zMUO_6P-QI-owiig",
+      "name": "R6 test",
+      "playerCount": 2,
+      "players": [
+        "abc@gmail.com"
+      ],
+      "startDate": "1718037084116",
+      "winner": "abc@gmail.com"
+    },
+    "-O-1zVbiCar0RG5iBvGD": {
+      "currentPlayers": 1,
+      "ended": true,
+      "game": "Rocket League",
+      "host": "abc@gmail.com",
+      "id": "-O-1zVbiCar0RG5iBvGD",
+      "name": "Rocket test",
+      "playerCount": 2,
+      "players": [
+        "abc@gmail.com"
+      ],
+      "startDate": "1718037121513",
+      "winner": "abc@gmail.com"
+    },
+    "-O-1zk9rMHL6a0kSh5sS": {
+      "currentPlayers": 2,
+      "ended": true,
+      "game": "CS2",
+      "host": "abc@gmail.com",
+      "id": "-O-1zk9rMHL6a0kSh5sS",
+      "name": "CS2 Proleague",
+      "playerCount": 8,
+      "players": [
+        "abc@gmail.com",
+        "tman1a@gmail.com"
+      ],
+      "startDate": "1718037185202",
+      "winner": "tman1a@gmail.com"
+    },
+    "-O-23FF33DB1dwSKIEL4": {
+      "currentPlayers": 1,
+      "endDate": "1718038368886",
+      "ended": true,
+      "game": "Fortnite",
+      "host": "abc@gmail.com",
+      "id": "-O-23FF33DB1dwSKIEL4",
+      "name": "Fortnite creative party",
+      "playerCount": 2,
+      "players": [
+        "abc@gmail.com"
+      ],
+      "startDate": "1718038365177",
+      "winner": "abc@gmail.com"
+    },
+    "-O-2a82wDBIFTx8fxaCJ": {
+      "currentPlayers": 2,
+      "endDate": "1718047346626",
+      "ended": true,
+      "game": "CS2",
+      "host": "abc@gmail.com",
+      "id": "-O-2a82wDBIFTx8fxaCJ",
+      "name": "CS2 Major Shangai",
+      "playerCount": 16,
+      "players": [
+        "abc@gmail.com",
+        "test@gmail.com"
+      ],
+      "startDate": "1718047260282",
+      "winner": "abc@gmail.com"
+    },
+    "-O-2ibjyBAuLpZbgcsbw": {
+      "currentPlayers": 1,
+      "endDate": "1718104844929",
+      "ended": true,
+      "game": "CS2",
+      "host": "abc@gmail.com",
+      "id": "-O-2ibjyBAuLpZbgcsbw",
+      "name": "CS2 Major Shangai",
+      "playerCount": 32,
+      "players": [
+        "abc@gmail.com"
+      ],
+      "startDate": "1718049482293",
+      "winner": "abc@gmail.com"
+    },
+    "-O-6-9kTmPFDd-mrYFJt": {
+      "currentPlayers": 1,
+      "endDate": "1718104590492",
+      "ended": true,
+      "game": "Rocket League",
+      "host": "tman1a@gmail.com",
+      "id": "-O-6-9kTmPFDd-mrYFJt",
+      "name": "RLCS 2024",
+      "playerCount": 100,
+      "players": [
+        "tman1a@gmail.com"
+      ],
+      "startDate": "1718104415578",
+      "winner": "tman1a@gmail.com"
+    },
+    "-O-61btFhmyz4PkI2-Pb": {
+      "currentPlayers": 2,
+      "endDate": "1718105142361",
+      "ended": true,
+      "game": "CS2",
+      "host": "abc@gmail.com",
+      "id": "-O-61btFhmyz4PkI2-Pb",
+      "name": "New CS2 ESL Challenguer",
+      "playerCount": 8,
+      "players": [
+        "abc@gmail.com",
+        "tman1a@gmail.com"
+      ],
+      "startDate": "1718105059210",
+      "winner": "tman1a@gmail.com"
+    },
+    "-O-63jLy8R8RFjFmkY2E": {
+      "currentPlayers": 2,
+      "ended": false,
+      "game": "Rainbow Six",
+      "host": "tman1a@gmail.com",
+      "id": "-O-63jLy8R8RFjFmkY2E",
+      "name": "R6 Jynxzi",
+      "playerCount": 16,
+      "players": [
+        "tman1a@gmail.com",
+        "abc@gmail.com"
+      ],
+      "startDate": "1718105614068"
+    },
+    "-O-68my3fbkd8ZFqlNBi": {
+      "currentPlayers": 1,
+      "ended": false,
+      "game": "Fortnite",
+      "host": "tman1a@gmail.com",
+      "id": "-O-68my3fbkd8ZFqlNBi",
+      "name": "Creativo 1v1",
+      "playerCount": 2,
+      "players": [
+        "tman1a@gmail.com"
+      ],
+      "startDate": "1718106939571"
+    },
+    "-O-68uW-kz6ZZLhnUOto": {
+      "currentPlayers": 2,
+      "ended": false,
+      "game": "CS2",
+      "host": "tman1a@gmail.com",
+      "id": "-O-68uW-kz6ZZLhnUOto",
+      "name": "Raid 4v4",
+      "playerCount": 2,
+      "players": [
+        "tman1a@gmail.com",
+        "abc@gmail.com"
+      ],
+      "startDate": "1718106970478"
+    },
+    "-O-68yoSnm7NwA0h6erR": {
+      "currentPlayers": 1,
+      "ended": false,
+      "game": "Rocket League",
+      "host": "tman1a@gmail.com",
+      "id": "-O-68yoSnm7NwA0h6erR",
+      "name": "RLCS",
+      "playerCount": 8,
+      "players": [
+        "tman1a@gmail.com"
+      ],
+      "startDate": "1718106988107"
     }
   },
   "users": {
     "abc@gmail,com": {
       "history": {
-        "-O-11QoW0aVLLf2ycs7y": "Jugado"
+        "-O-1s0fFBXY6EZXZx5JW": {
+          "game": "CS2",
+          "name": "CS2 Major",
+          "status": "Jugado"
+        },
+        "-O-1s4Hmkc6FDwg1-gFK": {
+          "game": "Fortnite",
+          "name": "Cash cup",
+          "status": "Ganador"
+        },
+        "-O-1s81WIgo46niXPh--": {
+          "game": "Rainbow Six",
+          "name": "r6 seasonal",
+          "status": "Ganador"
+        },
+        "-O-1sAyxwTpYiD-ezlDV": {
+          "game": "Rocket League",
+          "name": "rl cs",
+          "status": "Ganador"
+        },
+        "-O-1vIIOkaX0xDvmzxoG": {
+          "game": "CS2",
+          "name": "CS2 TomatoCup",
+          "status": "Jugado"
+        },
+        "-O-1vR6Ts8yd6a1YfirR": {
+          "game": "Rocket League",
+          "name": "Crampy's showmatch",
+          "status": "Jugado"
+        },
+        "-O-1yOFqiHddg3jYdPce": {
+          "game": "Fortnite",
+          "name": "FNCS 1",
+          "status": "Ganador"
+        },
+        "-O-1yPkxndF1mo7IKO6n": {
+          "game": "Fortnite",
+          "name": "FNCS 2",
+          "status": "Jugado"
+        },
+        "-O-1zMUO_6P-QI-owiig": {
+          "game": "Rainbow Six",
+          "name": "R6 test",
+          "status": "Ganador"
+        },
+        "-O-1zVbiCar0RG5iBvGD": {
+          "game": "Rocket League",
+          "name": "Rocket test",
+          "status": "Ganador"
+        },
+        "-O-1zk9rMHL6a0kSh5sS": {
+          "game": "CS2",
+          "name": "CS2 Proleague",
+          "status": "Jugado"
+        },
+        "-O-23FF33DB1dwSKIEL4": {
+          "game": "Fortnite",
+          "name": "Fortnite creative party",
+          "status": "Ganador"
+        },
+        "-O-2a82wDBIFTx8fxaCJ": {
+          "game": "CS2",
+          "name": "CS2 Major Shangai",
+          "status": "Ganador"
+        },
+        "-O-2ibjyBAuLpZbgcsbw": {
+          "game": "CS2",
+          "name": "CS2 Major Shangai",
+          "status": "Ganador"
+        },
+        "-O-61btFhmyz4PkI2-Pb": {
+          "game": "CS2",
+          "name": "New CS2 ESL Challenguer",
+          "status": "Jugado"
+        }
       },
-      "participations": 10,
-      "wins": 0
+      "participations": 25,
+      "wins": 9
+    },
+    "test@gmail,com": {
+      "history": {
+        "-O-1s4Hmkc6FDwg1-gFK": {
+          "game": "Fortnite",
+          "name": "Cash cup",
+          "status": "Jugado"
+        },
+        "-O-1s81WIgo46niXPh--": {
+          "game": "Rainbow Six",
+          "name": "r6 seasonal",
+          "status": "Jugado"
+        },
+        "-O-1vR6Ts8yd6a1YfirR": {
+          "game": "Rocket League",
+          "name": "Crampy's showmatch",
+          "status": "Ganador"
+        },
+        "-O-1ycSvAEnRONMfNKJQ": {
+          "game": "CS2",
+          "name": "Crampy's viewers customs",
+          "status": "Jugado"
+        },
+        "-O-2a82wDBIFTx8fxaCJ": {
+          "game": "CS2",
+          "name": "CS2 Major Shangai",
+          "status": "Jugado"
+        }
+      },
+      "participations": 5,
+      "wins": 1
     },
     "tman1a@gmail,com": {
       "history": {
-        "-O-11QoW0aVLLf2ycs7y": "Ganador"
+        "-O-1s0fFBXY6EZXZx5JW": {
+          "game": "CS2",
+          "name": "CS2 Major",
+          "status": "Ganador"
+        },
+        "-O-1sAyxwTpYiD-ezlDV": {
+          "game": "Rocket League",
+          "name": "rl cs",
+          "status": "Jugado"
+        },
+        "-O-1vIIOkaX0xDvmzxoG": {
+          "game": "CS2",
+          "name": "CS2 TomatoCup",
+          "status": "Ganador"
+        },
+        "-O-1vR6Ts8yd6a1YfirR": {
+          "game": "Rocket League",
+          "name": "Crampy's showmatch",
+          "status": "Jugado"
+        },
+        "-O-1yOFqiHddg3jYdPce": {
+          "game": "Fortnite",
+          "name": "FNCS 1",
+          "status": "Jugado"
+        },
+        "-O-1yPkxndF1mo7IKO6n": {
+          "game": "Fortnite",
+          "name": "FNCS 2",
+          "status": "Ganador"
+        },
+        "-O-1ycSvAEnRONMfNKJQ": {
+          "game": "CS2",
+          "name": "Crampy's viewers customs",
+          "status": "Ganador"
+        },
+        "-O-1zk9rMHL6a0kSh5sS": {
+          "game": "CS2",
+          "name": "CS2 Proleague",
+          "status": "Ganador"
+        },
+        "-O-6-9kTmPFDd-mrYFJt": {
+          "game": "Rocket League",
+          "name": "RLCS 2024",
+          "status": "Ganador"
+        },
+        "-O-61btFhmyz4PkI2-Pb": {
+          "game": "CS2",
+          "name": "New CS2 ESL Challenguer",
+          "status": "Ganador"
+        }
       },
-      "participations": 1,
-      "wins": 1
+      "participations": 11,
+      "wins": 8
     }
   }
 }
