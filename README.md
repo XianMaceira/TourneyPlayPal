@@ -70,7 +70,10 @@ TourneyPlayPal es una aplicación móvil que te permite organizar torneos de vid
 - Añadida lógica para mostrar fecha de final del torneo en el historial.
 - Arreglo de Bugs.
 
-- Para la última versión faltarían mejoras visuales y estadisticas/resultados
+### Versión 1.1.0
+
+- Verificación de email.
+
 
 ## Link descarga directa
 https://drive.google.com/file/d/1yPPdJdxyVdiaCtWxDKnOzDLE4h3wmffF/view?usp=sharing
